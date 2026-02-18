@@ -5,8 +5,8 @@ import customtkinter as ctk
 from tkinter import filedialog, messagebox
 from PIL import Image
 
-from file_processing import *
-from queens_linkedin import *
+from modules.file_processing import *
+from modules.queens_linkedin import *
 
 CURRENT_BOARD = None
 LAST_SOLUTION = []
