@@ -1,12 +1,6 @@
-# Tucil1_13524049
-# Queens LinkedIn Solver  
-Implementasi penyelesaian permasalahan Queens LinkedIn menggunakan Brute Force.
+# Tucil1_13524049 Queens LinkedIn Solver  
 
----
-
-## Deskripsi Proyek
-
-Queens LinkedIn Solver adalah aplikasi berbasis Python yang dikembangkan untuk menyelesaikan permasalahan logika **Queens LinkedIn**, yaitu variasi dari permasalahan klasik N-Queens dengan tambahan batasan khusus. Aplikasi ini menyediakan dua pendekatan algoritma utama, yaitu Exhaustive Search dan Backtracking.
+Queens LinkedIn Solver adalah aplikasi berbasis Python yang mengimplementasikan Brute Force untuk menyelesaikan permainan logika **Queens LinkedIn**, yaitu variasi dari permasalahan klasik N-Queens dengan tambahan batasan khusus. Aplikasi ini menyediakan dua pendekatan algoritma utama, yaitu Exhaustive Search dan Backtracking.
 
 Selain implementasi algoritma, aplikasi ini dilengkapi dengan antarmuka grafis (GUI) modern menggunakan `customtkinter` yang memungkinkan pengguna untuk memvisualisasikan proses pencarian solusi secara real-time serta menganalisis performa algoritma.
 
