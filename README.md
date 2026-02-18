@@ -68,7 +68,7 @@ Folder `assets/` wajib berisi file gambar `queen.png`.
 
 ---
 
-## c. Cara Mengkompilasi Program (Opsional – Membuat Executable)
+## c. Cara Mengkompilasi Program 
 
 Program dapat dijalankan langsung menggunakan Python.  
 Namun, jika ingin membuat file executable (.exe), gunakan PyInstaller.
