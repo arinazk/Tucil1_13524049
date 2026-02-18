@@ -85,17 +85,16 @@ def recursiveWithPruning(n, current_p, colored_board):
 def recursiveWithoutPruning(n, current_p, colored_board):
     global i, visual_callback
     if len(current_p) == n:
-        i+=1
-
-        if i % 25000000 == 0:
-            visual_callback(current_p + [row])
             
         if isSolution(current_p, colored_board):
             return current_p
         return None
 
     for row in range(n):
-        
+        i+=1
+
+        if i % 25000000 == 0:
+            visual_callback(current_p + [row])
         result = recursiveWithoutPruning(n, current_p + [row], colored_board)
         if result is not None:
             return result
