@@ -55,11 +55,11 @@ def matrixToImage(matrix, solution, save_path, color_map):
     draw = ImageDraw.Draw(img)
 
     if QUEEN_ICON is None:
-        if os.path.exists("assets/queen.png"):
-            raw_img = Image.open("assets/queen.png").convert("RGBA")
+        if os.path.exists("src/assets/queen_icon.png"):
+            raw_img = Image.open("src/assets/queen_icon.png").convert("RGBA")
             QUEEN_ICON = raw_img.resize((queen_size, queen_size), Image.LANCZOS)
         else:
-            print("File queen.png not found!")
+            print("File queen_icon.png not found!")
 
     for row in range(n):
         for col in range(n):

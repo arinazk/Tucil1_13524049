@@ -55,7 +55,7 @@ Tucil1_13524049/
 ├── doc/
 ├── src/
 │   ├── assets/
-│   │   └── queen.png
+│   │   └── queen_icon.png
 │   ├── modules/
 │   │   └── file_processing.py
 │   │   └── queen_linkedin.py
@@ -64,7 +64,7 @@ Tucil1_13524049/
 └── README.md
 ```
 
-Folder `assets/` wajib berisi file gambar `queen.png`.
+Folder `assets/` wajib berisi file gambar `queen_icon.png`.
 
 ---
 
