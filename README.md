@@ -14,16 +14,15 @@ Setiap ratu harus memenuhi ketentuan berikut:
 
 - Tidak berada pada baris yang sama.
 - Tidak berada pada kolom yang sama.
-- Tidak berada pada diagonal yang sama.
-- Tidak berada pada wilayah (region/warna) yang sama.
-- Tidak saling bersinggungan dengan ratu lain.
+- Tidak berada pada daerah yang sama.
+- Tidak saling bersinggungan dengan ratu lain, baik secara vertikal, horizontal, ataupun diagonal.
 
 Program menyediakan dua pendekatan algoritma:
 
-1. **Exhaustive Search (Brute Force)**  
+1. **Exhaustive Search**  
    Menelusuri seluruh kemungkinan solusi tanpa pemangkasan sejak awal, lalu memvalidasi solusi di akhir.
 
-2. **Backtracking (Optimized Brute Force)**  
+2. **Backtracking**  
    Menggunakan teknik pruning (pemangkasan cabang) dengan melakukan pengecekan validitas di setiap langkah rekursi sehingga ruang pencarian berkurang secara signifikan.
 
 Aplikasi juga menyediakan visualisasi proses pencarian solusi secara real-timw, statistik eksekusi, serta fitur ekspor hasil ke format gambar.
@@ -58,6 +57,8 @@ Tucil1_13524049/
 │   ├── assets/
 │   │   └── queen.png
 │   ├── modules/
+│   │   └── file_processing.py
+│   │   └── queen_linkedin.py
 │   └── main.py
 ├── test/
 └── README.md
@@ -124,7 +125,7 @@ bin/main.exe
 
 ### Format File Input
 
-File input harus berupa matriks karakter (A–Z) yang merepresentasikan wilayah/warna.
+File input harus berupa matriks karakter (A–Z) yang merepresentasikan daerah warna.
 
 Contoh:
 
