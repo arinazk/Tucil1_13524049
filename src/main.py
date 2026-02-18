@@ -75,17 +75,17 @@ def solveGame():
     n = len(CURRENT_BOARD)
     start_time = time.time()
 
-    import queens_linkedin
-    queens_linkedin.i = 0 
+    import modules.queens_linkedin
+    modules.queens_linkedin.i = 0 
 
-    queens_linkedin.visual_callback = lambda progress: app.after(0, updateBoardDisplay, progress, False)
+    modules.queens_linkedin.visual_callback = lambda progress: app.after(0, updateBoardDisplay, progress, False)
     
     stop_monitoring = False
 
     def monitor():
         while not stop_monitoring:
             elapsed = time.time() - start_time
-            current_nodes = queens_linkedin.i 
+            current_nodes = modules.queens_linkedin.i 
 
             SEARCHING_TIME.configure(text=f"{elapsed:.4f} s")
             CASES_CHECKED.configure(text=f"{current_nodes:,}")
@@ -98,13 +98,13 @@ def solveGame():
 
     stop_monitoring = True
 
-    final_nodes = queens_linkedin.i
+    final_nodes = modules.queens_linkedin.i
     final_time = time.time() - start_time
     
     SEARCHING_TIME.configure(text=f"{final_time:.4f} s")
     CASES_CHECKED.configure(text=f"{final_nodes:,}") 
     
-    queens_linkedin.visual_callback = None
+    modules.queens_linkedin.visual_callback = None
 
     SAVE_BUTTON.configure(
         state="normal", 
@@ -138,8 +138,8 @@ def resetHandler(OPT_SWITCH):
     IS_RUNNING = False 
     stop_monitoring = True 
     
-    import queens_linkedin
-    queens_linkedin.visual_callback = None 
+    import modules.queens_linkedin
+    modules.queens_linkedin.visual_callback = None 
     
     CURRENT_BOARD = None
     SOLVE_BUTTON.configure(state="disabled", fg_color="gray")
