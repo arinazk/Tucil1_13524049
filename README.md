@@ -6,94 +6,151 @@ Implementasi penyelesaian permasalahan Queens LinkedIn menggunakan Brute Force.
 
 ## Deskripsi Proyek
 
-Queens LinkedIn Solver adalah aplikasi berbasis Python yang dikembangkan untuk menyelesaikan permasalahan logika **Queens LinkedIn**, yaitu variasi dari permasalahan klasik N-Queens dengan tambahan batasan khusus.
-
-Aplikasi ini menyediakan dua pendekatan algoritma utama:
-
-1. Exhaustive Search (Brute Force)
-2. Backtracking dengan Pruning (Optimized)
+Queens LinkedIn Solver adalah aplikasi berbasis Python yang dikembangkan untuk menyelesaikan permasalahan logika **Queens LinkedIn**, yaitu variasi dari permasalahan klasik N-Queens dengan tambahan batasan khusus. Aplikasi ini menyediakan dua pendekatan algoritma utama, yaitu Exhaustive Search dan Backtracking.
 
 Selain implementasi algoritma, aplikasi ini dilengkapi dengan antarmuka grafis (GUI) modern menggunakan `customtkinter` yang memungkinkan pengguna untuk memvisualisasikan proses pencarian solusi secara real-time serta menganalisis performa algoritma.
 
-Proyek ini dikembangkan untuk keperluan akademik dalam rangka studi algoritma brute force, rekursi, backtracking, dan analisis kompleksitas.
+---
+
+## a. Penjelasan Singkat Program
+
+Program ini merupakan aplikasi berbasis GUI yang dirancang untuk menyelesaikan permasalahan penempatan Ratu (Queens Problem) dengan batasan tambahan berupa wilayah (region/warna) pada papan.
+
+Setiap ratu harus memenuhi ketentuan berikut:
+
+- Tidak berada pada baris yang sama.
+- Tidak berada pada kolom yang sama.
+- Tidak berada pada diagonal yang sama.
+- Tidak berada pada wilayah (region/warna) yang sama.
+- Tidak saling bersinggungan dengan ratu lain.
+
+Program menyediakan dua pendekatan algoritma:
+
+1. **Exhaustive Search (Brute Force)**  
+   Menelusuri seluruh kemungkinan solusi tanpa pemangkasan sejak awal, lalu memvalidasi solusi di akhir.
+
+2. **Backtracking (Optimized Brute Force)**  
+   Menggunakan teknik pruning (pemangkasan cabang) dengan melakukan pengecekan validitas di setiap langkah rekursi sehingga ruang pencarian berkurang secara signifikan.
+
+Aplikasi juga menyediakan visualisasi proses pencarian solusi secara real-timw, statistik eksekusi, serta fitur ekspor hasil ke format gambar.
 
 ---
 
-## Spesifikasi Permasalahan
+## b. Requirement Program dan Instalasi
 
-Diberikan sebuah papan berukuran N × N yang terdiri dari huruf kapital (A–Z). Setiap huruf merepresentasikan sebuah region warna.
+### Requirement Sistem
 
-Tujuan: Menempatkan N buah queen pada papan sehingga memenuhi seluruh batasan berikut.
-1. Setiap kolom memiliki tepat satu queen.
-2. Tidak ada dua queen berada pada baris yang sama.
-3. Tidak ada dua queen berada pada region warna yang sama.
-4. Queen pada kolom yang bersebelahan tidak boleh berada pada baris yang selisihnya 1 (tidak boleh bersinggungan secara vertikal).
+- Python 3.x
+- Sistem Operasi: Windows / Linux / macOS
 
-Solusi direpresentasikan sebagai array satu dimensi dengan ketentuan sebagai berikut:
+### Library yang Dibutuhkan
 
-- Indeks array merepresentasikan **kolom** pada papan.
-- Nilai pada indeks tersebut merepresentasikan **baris** tempat queen ditempatkan pada kolom tersebut.
-
----
-
-## Fitur Utama
-
-### 1. Penyelesaian Permasalahan dengan Constraint Lengkap
-Aplikasi mampu menyelesaikan papan permainan Queens LinkedIn dengan memperhatikan seluruh batasan berikut:
-- Tidak ada dua queen pada baris yang sama.
-- Tidak ada dua queen pada region warna yang sama.
-- Tidak ada queen yang bersinggungan secara vertikal (adjacent) pada kolom bersebelahan.
-
-Sistem validasi dilakukan secara otomatis selama proses pencarian solusi.
-
----
-
-### 2. Dua Mode Algoritma
-
-#### a. Exhaustive Search
-- Menelusuri seluruh ruang pencarian secara sistematis.
-- Tidak melakukan pemangkasan cabang pencarian.
-- Validasi solusi dilakukan setelah seluruh queen ditempatkan.
-- Digunakan sebagai pembanding performa terhadap metode teroptimasi.
-
-#### b. Backtracking (Optimized)
-- Menggunakan teknik pruning untuk menghentikan cabang yang tidak valid sedini mungkin.
-- Melakukan pengecekan keamanan pada setiap langkah rekursi.
-- Secara signifikan mengurangi jumlah node yang dieksplorasi.
-- Memberikan performa yang jauh lebih efisien dalam praktik.
-
----
-
-### 3. Visualisasi Real-time
-Selama proses pencarian berlangsung, aplikasi menampilkan visualisasi papan secara dinamis sehingga pengguna dapat mengamati proses eksplorasi solusi oleh algoritma.
-
----
-
-### 4. Statistik Eksekusi
-Aplikasi menyediakan informasi performa algoritma secara langsung, meliputi:
-- Waktu eksekusi (Execution Time)
-- Total kasus atau node yang diperiksa selama proses pencarian
-
-Fitur ini memungkinkan analisis dan perbandingan performa antara Exhaustive Search dan Backtracking.
-
----
-
-### 5. Ekspor Papan
-Papan dapat disimpan dalam format gambar `.png`.
-
----
-## Instalasi
-
-### Prasyarat
-Pastikan sistem telah terinstal **Python 3.x**.
-
-### Instalasi Dependensi
-
-Jalankan perintah berikut pada terminal:
+Install dependency berikut sebelum menjalankan program:
 
 ```bash
 pip install customtkinter pillow numpy
+```
 
+### Struktur Folder 
 
+Pastikan struktur direktori sebagai berikut:
 
+```
+Tucil1_13524049/
+│
+├── bin/
+├── doc/
+├── src/
+│   ├── assets/
+│   │   └── queen.png
+│   ├── modules/
+│   └── main.py
+├── test/
+└── README.md
+```
 
+Folder `assets/` wajib berisi file gambar `queen.png`.
+
+---
+
+## c. Cara Mengkompilasi Program (Opsional – Membuat Executable)
+
+Program dapat dijalankan langsung menggunakan Python.  
+Namun, jika ingin membuat file executable (.exe), gunakan PyInstaller.
+
+### Install PyInstaller
+
+```bash
+pip install pyinstaller
+```
+
+### Build Executable
+
+Dari root folder project, jalankan:
+
+```bash
+python -m PyInstaller --onefile --windowed --distpath bin --add-data "src/assets;assets" src/main.py
+```
+
+Setelah proses selesai, file executable akan berada di:
+
+```
+bin/main.exe
+```
+
+File tersebut dapat dijalankan tanpa perlu menginstal Python kembali.
+
+---
+
+## d. Cara Menjalankan dan Menggunakan Program
+
+### Menjalankan Program
+
+Dari root folder project, jalankan:
+
+```bash
+python src/main.py
+```
+
+Atau jika sudah dibuat executable:
+
+```
+bin/main.exe
+```
+
+### Cara Menggunakan Program
+
+1. Klik tombol **Import File** untuk mengunggah file konfigurasi papan dalam format `.txt`.
+2. Pilih mode algoritma:
+   - Nonaktifkan optimasi → Exhaustive Search
+   - Aktifkan optimasi → Backtracking
+3. Klik **Solve** untuk memulai pencarian solusi.
+4. Tunggu hingga proses selesai.
+5. Klik **Save Board as Image** untuk menyimpan hasil solusi dalam format `.png`.
+
+### Format File Input
+
+File input harus berupa matriks karakter (A–Z) yang merepresentasikan wilayah/warna.
+
+Contoh:
+
+```
+AAAB
+BCCC
+BBDD
+EEED
+```
+
+Ketentuan:
+- Papan harus berbentuk persegi (n × n).
+- Jumlah wilayah unik harus sama dengan ukuran papan (n).
+
+---
+
+## e. Author / Identitas Pembuat
+
+**Nama**: Arina Azka  
+**NIM**: 13524049 
+**Program Studi**: Teknik Informatika  
+
+---
